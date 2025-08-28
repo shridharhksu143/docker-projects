@@ -13,7 +13,7 @@ RUN npm ci --no-audit --no-fund
 COPY . .
 
 # Acept a build-arg for cra env var,and expose it for the build step
-ARB REACT_APP_BACKEND_URL
+ARG REACT_APP_BACKEND_URL
 ENV REACT_APP_BACKEND_URL=${REACT_APP_BACKEND_URL}
 
 
