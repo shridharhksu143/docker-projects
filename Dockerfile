@@ -1,5 +1,5 @@
 #create from basic image adding
-FROM ubantu:24.04
+FROM ubuntu:24.04
 
 #making working directory
 WORKDIR /myworkdir
