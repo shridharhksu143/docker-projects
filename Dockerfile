@@ -15,3 +15,9 @@ COPY . .
 # Acept a build-arg for cra env var,and expose it for the build step
 ARB REACT_APP_BACKEND_URL
 ENV REACT_APP_BACKEND_URL=${REACT_APP_BACKEND_URL}
+
+
+# build the production specific files
+RUN run npm build
+
+
