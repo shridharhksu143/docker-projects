@@ -28,7 +28,7 @@ FROM node:16-bullseye AS test
 WORKDIR /app
 	
 # Remove default nginx content (optional/clean)
-RUN npm install -g serve
+RUN npm install -g serve@14
 
 
 # Copy built static files from build stage
