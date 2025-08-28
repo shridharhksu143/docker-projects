@@ -11,7 +11,7 @@ pipeline {
             steps {
                 echo "running docker for checking file"
                 script {
-                    def result = sh(script:'docker run -d sample_docker ls-a', returnStdout: true)
+                    def result = sh(script:'docker run -d sample_docker ls -a', returnStdout: true)
                     echo 'files:\n${result}'
                 }
             }
