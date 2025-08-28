@@ -33,7 +33,7 @@ COPY --from=build /app/build /usr/share/nginx/html
 # COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
 
 # Expose nginx port
-EXPOSE 5000
+EXPOSE 80
 
 # Start nginx in foreground
 CMD ["nginx", "-g", "daemon off;"]
