@@ -20,20 +20,25 @@ ENV REACT_APP_BACKEND_URL=${REACT_APP_BACKEND_URL}
 
 # build the production specific files
 RUN npm run build
-# ---------- Stage 2: serve with nginx ----------
-FROM nginx:alpine
 
+# ---------- Stage 2: serve with nginx ----------
+FROM node:16-bullseye AS test
+
+# set working dir
+WORKDIR /app
+	
 # Remove default nginx content (optional/clean)
-RUN rm -rf /usr/share/nginx/html/*
+RUN npn install -g serve
+
 
 # Copy built static files from build stage
-COPY --from=build /app/build /usr/share/nginx/html
+COPY --from=build /app/build /app/build
 
 # (Optional) Provide a custom nginx config — if you need SPA routing.
 # COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
 
 # Expose nginx port
-EXPOSE 80
+EXPOSE 5000
 
 # Start nginx in foreground
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["serve", "-s", "build", "-l", "5000"]
