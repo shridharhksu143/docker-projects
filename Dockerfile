@@ -19,7 +19,7 @@ ENV REACT_APP_BACKEND_URL=${REACT_APP_BACKEND_URL}
 
 
 # build the production specific files
-RUN run npm build
+RUN npm run build
 # ---------- Stage 2: serve with nginx ----------
 FROM nginx:alpine
 
