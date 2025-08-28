@@ -1,11 +1,6 @@
-#create from basic image adding
-FROM ubuntu:24.04
+# building a multi stage fontend projec 
+# -------------------------step 1: build -----------------------------
+FROM node:16-bullseye AS build
 
-#making working directory
-WORKDIR /myworkdir
-
-#coping files into myworkdir
-COPY . /myworkdir
-
-#installing node.js inside it
-
+# set working directory
+WORKDIR /app 
