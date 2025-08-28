@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+# docker-projects
+docker learning files along with code  avilable here
+>>>>>>> main
 # example-frontend
 
 This project is created to help learn docker configurations for frontend projects. The README starting from "Prerequisites" is written without Docker in mind so student has to figure out how to construct their configuration based on the README. However, there are some additional helpers added in the README and in the exercise description.
