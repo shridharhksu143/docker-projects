@@ -12,7 +12,7 @@ pipeline {
                 sh'docker build -t example-backend .'
             }
         }
-        stage("running container") {
+        stage("running container removing") {
             steps {
                 sh '''
                 # Remove container if already exist"
