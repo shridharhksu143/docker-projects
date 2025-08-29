@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    steps {
+    stages {
         step("connection") {
             echo "connected to git"
         }
