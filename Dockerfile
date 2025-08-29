@@ -8,11 +8,11 @@ WORKDIR /app
  COPY . /app/
 
  #build project
- RUN `go build` .
+ RUN go build -o server .
 
  # test project
- RUN `go test ./...` .
+ RUN go test ./...
 
  #execute the project
- RUN `./server ` .
+ ENTRYPOINT ["./server"]
 
