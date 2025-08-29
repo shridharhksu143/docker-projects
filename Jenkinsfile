@@ -2,18 +2,18 @@ pipeline {
     agent any
     stages {
         stage("connection") {
-            step {
+            steps {
                 echo "connected to git"
             }
         }
         stage("build") {
-            step {
+            steps {
                 echo "building container"
                 sh'docker build -t example-backend .'
             }
         }
         stage("check files copied"){
-            step {
+            steps {
                 echo "cheking files copied or not"
             script {
                 def result = sh(script:'docker run -d example-backed ls -a', returnStdout: true)
@@ -22,13 +22,13 @@ pipeline {
             }
         }
         stage("running container") {
-            step {
+            steps {
                 echo "running docker in detach mode"
                 sh'docker run -d example-backend'
             }
         }
         stage("stop container") {
-            step {
+            steps {
                 echo "stoping container"
                 sh'docker stop example-backend'
             }
