@@ -1,5 +1,5 @@
 #Initializing the docker file from golang
-FROM golang:1.21-slim
+FROM golang:1.16
 
 #setting working directory
 WORKDIR /app
@@ -16,4 +16,3 @@ WORKDIR /app
  #execute the project
  RUN `./server ` .
 
- 
