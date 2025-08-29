@@ -12,12 +12,23 @@ pipeline {
                 sh'docker build -t example-backend .'
             }
         }
+        stage("running container") {
+            steps {
+                sh '''
+                # Remove container if already exist"
+                docker rm -f example-backend || true
+
+                # Start fresh container 
+                docker run -d --name example-backend -p 8000:8080 example-backend
+                '''
+            }
+        }
         stage("check files copied"){
             steps {
                 echo "cheking files copied or not"
             script {
-                def result = sh(script:'docker run -d example-backend ls -a', returnStdout: true)
-                echo 'files:\n${result}'
+                def result = sh(script:'docker exec example-backend ls -a/app', returnStdout: true)
+                echo "files:\n${result}"
                 }
             }
         }
