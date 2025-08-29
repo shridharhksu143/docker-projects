@@ -11,7 +11,7 @@ WORKDIR /app
  RUN `go build` .
 
  # test project
- RUN `go test ./... .
+ RUN `go test ./...` .
 
  #execute the project
  RUN `./server ` .
