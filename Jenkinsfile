@@ -27,7 +27,7 @@ pipeline {
             steps {
                 echo "cheking files copied or not"
             script {
-                def result = sh(script:'docker exec example-backend ls -a/app', returnStdout: true)
+                def result = sh(script:'docker exec example-backend ls -a/app', returnStdout: true).trim()
                 echo "files:\n${result}"
                 }
             }
