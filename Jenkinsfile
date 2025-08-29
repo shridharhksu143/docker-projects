@@ -32,12 +32,6 @@ pipeline {
                 }
             }
         }
-        stage("running container") {
-            steps {
-                echo "running docker in detach mode"
-                sh'docker run -d example-backend'
-            }
-        }
         stage("stop container") {
             steps {
                 echo "stoping container"
