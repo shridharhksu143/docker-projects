@@ -2,7 +2,9 @@ pipeline {
     agent any
     stages {
         stage("connection") {
-            echo "connected to git"
+            step {
+                echo "connected to git"
+            }
         }
         stage("build") {
             step {
@@ -13,9 +15,9 @@ pipeline {
         stage("check files copied"){
             step {
                 echo "cheking files copied or not"
-                script {
-                    def result = sh(script:'docker run -d example-backed ls -a', returnStdout: true)
-                    echo 'files:\n${result}'
+            script {
+                def result = sh(script:'docker run -d example-backed ls -a', returnStdout: true)
+                echo 'files:\n${result}'
                 }
             }
         }
